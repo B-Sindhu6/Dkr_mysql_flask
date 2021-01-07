@@ -1,0 +1,47 @@
+<html>
+
+<head>
+<title>Get details of university!</title>
+</head>
+
+<body style="background: #fff0f0;
+border-top:2px solid #900;
+border-bottom:2px solid #900;
+border-left:2px solid #900;
+border-right:2px solid #900;
+font-size:large">
+<div style="margin-top:50px
+margin-bottom:50px;
+margin-left:50px;
+margin-right:50px">
+  <a href='/'><h4 style="text-align:left;font-style:oblique"><br>Home</h4></a>
+</div>
+{%if c%}
+<div style="margin-top:50px
+margin-bottom:50px;
+margin-left:50px;
+margin-right:50px">
+  <ul>
+  {%for i in values%}
+    <li><a href={{url_for('university',_Method='POST',university=i)}}>{{i}}</a></li>
+  {%endfor%}
+  </ul>
+</div>
+{%else%}
+<div style="margin-top:50px
+margin-bottom:25px;
+margin-left:25px;
+margin-right:25px">
+{%if values%}
+  <h4>NAME: {{values['name']}}</h4>
+  <h7>ADDRESS: {{values['address']}}<br>LAT: {{values['lat']}}<br>LNG: {{values['lon']}}<br>COUNTRY: {{values['country']}}</h7>
+{%else%}
+
+  <h2>University not found, may be you can try with selecting country option!</h2>
+{%endif%}
+{%endif%}
+</div>
+
+</body>
+
+</html>
